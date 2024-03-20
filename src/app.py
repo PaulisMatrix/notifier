@@ -52,7 +52,7 @@ def dispatch_notification(data: OrdersPayload):
 
     # Register your functions here to which channel you want to send the notif
     # Can add selectively based on the "channel" param sent by the services as well
-    handlers = [Handlers.SENDEMAIL]
+    handlers = [Handlers.EMAILHANDLER, Handlers.WHATSAPPHANDLER]
     _ = celery_app.send_task(
         task_name, kwargs={"event_payload": event_payload, "handlers": handlers}
     )

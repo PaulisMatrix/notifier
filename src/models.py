@@ -14,9 +14,9 @@ class Channel(str, Enum):
 
 
 class Handlers(str, Enum):
-    SENDEMAIL = "send_toemail"
-    SENDPHONE = "send_tophone"
-    SENDWHATSAPP = "send_towhatsapp"
+    EMAILHANDLER = "EmailNotificationHandler"
+    WHATSAPPHANDLER = "WhatsAPPNotificationHandler"
+    SMSHANDLER = "SMSNotificationHandler"
 
     def __str__(self) -> str:
         return self.value

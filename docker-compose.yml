@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  redis:
+    image: redis:latest
+    hostname: redis
+    ports:
+      - 6379:6379
+
+  notifier:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    hostname: notifier
+    command: [ "python3", "app.py" ]
+    ports:
+      - 3001:3001
+
+  notifier-bg:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    hostname: notifier-bg
+    command:
+      [
+        "celery",
+        "--app",
+        "worker.celery_app",
+        "worker",
+        "--loglevel=INFO",
+        "--autoscale=5,2",
+        "-n worker%d@%h"
+      ]
+    links:
+      - redis
+    depends_on:
+      - redis
+      - notifier
+    environment:
+      - BROKER_URL=${BROKER_URL_PROD}

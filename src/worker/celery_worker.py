@@ -10,17 +10,8 @@ logger = get_task_logger(__name__)
 
 
 class BaseTask(Task):
-    _session = None
-
     def __init__(self) -> None:
         super().__init__()
-
-    # @property
-    # def get_session(self):
-    #    if self._session is None:
-    #        self._session = aiohttp.ClientSession()
-
-    #    return self._session
 
 
 @celery_app.task(base=BaseTask, bind=True)
@@ -58,4 +49,4 @@ async def make_request(
     try:
         _ = await asyncio.gather(*coroutine_handlers, return_exceptions=True)
     except Exception:
-        logger.warning("Error while creating variables", exc_info=True)
+        logger.warning("Error while sending notifications", exc_info=True)

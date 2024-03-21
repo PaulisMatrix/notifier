@@ -73,7 +73,6 @@ def dispatch_notification(data: OrdersPayload):
 # Dummmy handler for testing
 @app.post("/email-handler", status_code=status.HTTP_200_OK)
 def email_handler(data: OrdersPayload):
-    print("got event data: ", json.dumps(jsonable_encoder(data)))
     asia_time = datetime.now(pytz.timezone("Asia/Kolkata"))
     cur_time = asia_time.strftime("%H:%M:%S")
 

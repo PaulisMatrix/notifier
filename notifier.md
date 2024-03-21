@@ -18,9 +18,11 @@
       3. Add the event payload to redis.
       4. Background, celery worker picks up the event payload and sends the mail.
 
-# Possible options for sending email:
+# How to send an email using python:
 
+  * https://blog.macuyiko.com/post/2016/how-to-send-html-mails-with-oauth2-and-gmail-in-python.html
+  * https://github.com/kootenpv/yagmail
+  * https://realpython.com/python-send-email/
   * https://www.twilio.com/en-us/blog/how-to-send-emails-in-python-with-sendgrid
   * 
-
 

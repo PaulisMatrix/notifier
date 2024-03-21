@@ -1,6 +1,8 @@
 aiofiles==23.2.1
 aiohttp==3.9.3
 aiosignal==1.2.0
+aiosmtplib==3.0.1
+aioyagmail==0.0.4
 altair==4.2.2
 amqp==5.2.0
 ansi2html==1.8.0
@@ -84,6 +86,7 @@ tornado==6.2
 uvicorn==0.28.1
 uvloop==0.17.0
 validators==0.20.0
+yagmail== 0.15.293
 watchfiles==0.21.0
 wcwidth==0.2.13
 websockets==12.0

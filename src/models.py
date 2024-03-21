@@ -48,7 +48,12 @@ class UserData(BaseModel):
 
 class OrdersPayload(UserData, PayloadMetadata):
     order_id: str
-    order_total: float
+    order_subtotal: float
+    shipping_charges: float
+    discount_applied: bool = False
+    total_discount: float
+    currency: str
+    num_items: int
     order_status: OrderStatus
     expected_date: str
     delivery_address: str

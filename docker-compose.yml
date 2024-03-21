@@ -38,3 +38,4 @@ services:
       - notifier
     environment:
       - BROKER_URL=${BROKER_URL_PROD}
+      - GMAIL_CREDS_FILE_PATH=${GMAIL_CREDS_FILE_PATH}

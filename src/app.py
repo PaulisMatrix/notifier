@@ -45,8 +45,10 @@ async def validation_exception_handler(request: Request, exc: RequestValidationE
 
 
 @app.post("/send-notif", status_code=status.HTTP_200_OK)
-def dispatch_notification(data: OrdersPayload):
+async def dispatch_notification(data: OrdersPayload):
     # serialize the JSON and add
+    # add a validator which validates payload fields
+
     event_payload = json.dumps(jsonable_encoder(data))
     task_name = "worker.celery_worker.dummy_task"
 
